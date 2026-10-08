@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anderson Ferreira | Desenvolvedor Front end e UX/UI</title>
+   <link rel="icon" type="image" href="img/favicon-512.png" />
+  <meta name="description" content="Portfólio de Anderson Ferreira, desenvolvedor Front end e UX/UI. HTML, CSS, JavaScript, React e Figma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-list" id="navList">
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#portfolio">Portifolio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="https://www.linkedin.com/in/anderson-ferreira-9839b72b6" target="_blank" rel="noopener">Linkedin</a></li>
+        <li><a href="#contato">Entre em Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <h1 class="reveal">
+        Anderson Ferreira é<br />
+        Desenvolvedor <span class="accent">Front end</span><br />
+        e <span class="accent">ux/ui.</span>
+      </h1>
+      <div class="hero-avatar reveal">
+        <!-- Troque img/avatar.png pela sua ilustração -->
+        <img src="img/foto1.jpeg" alt="Ilustração de Anderson Ferreira" id="avatarImg" />
+     
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="about" id="sobre">
+      <div class="about-text reveal">
+        <p>
+          Estudante de Análise e Desenvolvimento de Sistemas, com experiência em projetos web e
+          participação em squads em projetos acadêmicos. Domínio em JavaScript, React.js, CSS, HTML
+          e Figma. Conhecimento básico em SQL e Python. Busco aprimorar meus conhecimentos técnicos
+          em um ambiente de trabalho desafiador e colaborativo.
+        </p>
+        <a href="#contato" class="btn btn-primary">Vamos conversar</a>
+      </div>
+      <div class="about-photo reveal">
+        <div class="photo-frame">
+          <!-- Troque img/foto.jpg pela sua foto -->
+          <img src="img/foto2.jpeg" alt="Anderson Ferreira apresentando um projeto" id="photoImg" />
+   
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIÊNCIA E FORMAÇÃO -->
+    <section class="section" id="experiencia">
+      <h2 class="section-title reveal">Experiência.</h2>
+      <div class="timeline">
+        <article class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <h3>Colégio Lavoisier <small>Suporte de TI</small></h3>
+          <p>Atuando na área de suporte e na criação de landing pages para campanhas.</p>
+          <ul>
+            <li>Produção de sites e formulários web.</li>
+            <li>Cadastro e manutenção de usuários.</li>
+            <li>Suporte interno e externo aos sistemas usados na empresa.</li>
+          </ul>
+        </article>
+         <article class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <h3>Residência em Software II <small>Porto Digital e Unit</small></h3>
+          <p>Projeto em parceria com o Porto Digital, onde desenvolvemos o sistema para reservas de Salas para a Accenture.</p>
+          <ul>
+            <li>Desenvolvimento do front end do sistema para reservas de Salas da Accenture.</li>
+          </ul>
+        </article>
+        <article class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <h3>Residência em Software I <small>Porto Digital e Unit</small></h3>
+          <p>Projeto em parceria com o Porto Digital, onde desenvolvemos o ROP da Polícia Militar de Sergipe.</p>
+          <ul>
+            <li>Desenvolvimento do front end do ROP usado pela PM do estado de Sergipe.</li>
+          </ul>
+        </article>
+        <article class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <h3>Freelancer <small>Desenvolvedor Front end</small></h3>
+          <p>Desenvolvendo projetos reais e conceituais.</p>
+          <ul>
+            <li>Produção de landing pages para campanhas escolares.</li>
+            <li>Produção de app de organização de tarefas.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h2 class="section-title sub reveal">Formação.</h2>
+      <div class="edu-grid">
+        <article class="edu-card reveal">
+          <h3>Universidade Tiradentes</h3>
+          <p>Análise e Desenvolvimento de Sistemas</p>
+          <span class="tag">2025 – 2027 · 5º período</span>
+        </article>
+        <article class="edu-card reveal">
+          <h3>JovemTech · Inovase</h3>
+          <p>Programa gratuito de capacitação em tecnologia, empreendedorismo e cidadania voltado para jovens em Aracaju.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section class="section" id="portfolio">
+      <h2 class="section-title reveal">Portifolio.</h2>
+      <div class="cards">
+
+        <article class="card reveal">
+          <div class="card-img">
+            <img src="img/image3.png" alt="Tela de login do Gerenciador de Salas"><span class="card-icon">Html · CSS · JS</span></div>
+          <div class="card-body">
+            <h3>Sideline - Site Institucional</h3>
+            <p>Site institucional para uma clínica de fisioterapia esportiva em Aracaju.</p>
+            <a class="btn btn-light" href="https://andersonsanto09.github.io/site-sideline/" target="_blank" rel="noopener">Conhecer</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-img">
+            <img src="img/image.png" alt="Tela de login do Gerenciador de Salas">
+            <span class="card-icon">Html · CSS · JS</span>
+          </div>
+          <div class="card-body">
+            <h3>Gerenciador de Salas</h3>
+            <p>Sistema completo para gerenciamento de salas, assentos, reservas individuais e reservas em grupo em ambientes corporativos híbridos.
+            </p>
+            <a class="btn btn-light" href="projects/accenture-v3-demo/accenture-v3/index.html" target="_blank" rel="noopener">Conhecer</a>
+          </div>
+        </article>
+
+
+        <article class="card reveal">
+          <div class="card-img">
+             <img src="img/image2.png" alt="Tela de login do Gerenciador de Salas"><span class="card-icon">HTML · CSS · JS</span></div>
+          <div class="card-body">
+            <h3>Landing page de contato</h3>
+            <p>Página de contato responsiva com formulário integrado.</p>
+            <a class="btn btn-light" href="https://andersonsanto09.github.io/LandingPage-Formulario/" target="_blank" rel="noopener">Conhecer</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <h2 class="section-title reveal">Skills.</h2>
+      <div class="skills">
+        <div class="skill reveal" data-level="90">
+          <div class="skill-icon">H</div>
+          <div class="skill-info"><span class="skill-name">HTML</span><div class="bar"><i></i></div></div>
+        </div>
+        <div class="skill reveal" data-level="85">
+          <div class="skill-icon">C</div>
+          <div class="skill-info"><span class="skill-name">CSS</span><div class="bar"><i></i></div></div>
+        </div>
+        <div class="skill reveal" data-level="80">
+          <div class="skill-icon">JS</div>
+          <div class="skill-info"><span class="skill-name">JavaScript</span><div class="bar"><i></i></div></div>
+        </div>
+        <div class="skill reveal" data-level="75">
+          <div class="skill-icon">R</div>
+          <div class="skill-info"><span class="skill-name">React</span><div class="bar"><i></i></div></div>
+        </div>
+        <div class="skill reveal" data-level="80">
+          <div class="skill-icon">F</div>
+          <div class="skill-info"><span class="skill-name">Figma</span><div class="bar"><i></i></div></div>
+        </div>
+        <div class="skill reveal" data-level="60">
+          <div class="skill-icon">N</div>
+          <div class="skill-info"><span class="skill-name">Node.js</span><div class="bar"><i></i></div></div>
+        </div>
+        <div class="skill reveal" data-level="40">
+          <div class="skill-icon">Py</div>
+          <div class="skill-info"><span class="skill-name">Python <em>(noção)</em></span><div class="bar"><i></i></div></div>
+        </div>
+        <div class="skill reveal" data-level="40">
+          <div class="skill-icon">SQL</div>
+          <div class="skill-info"><span class="skill-name">SQL <em>(noção)</em></span><div class="bar"><i></i></div></div>
+        </div>
+        <div class="skill reveal" data-level="75">
+          <div class="skill-icon">O</div>
+          <div class="skill-info"><span class="skill-name">Pacote Office</span><div class="bar"><i></i></div></div>
+        </div>
+      </div>
+
+      <h3 class="soft-title reveal">Habilidades pessoais</h3>
+      <ul class="chips reveal">
+        <li>Criatividade</li>
+        <li>Facilidade para trabalhar em equipe</li>
+        <li>Curiosidade e vontade de aprender</li>
+        <li>Empatia na comunicação com públicos diversos</li>
+        <li>Capacidade de adaptação</li>
+        <li>Aprendizagem rápida</li>
+        <li>Boa comunicação</li>
+        <li>Inglês intermediário</li>
+      </ul>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section" id="contato">
+      <h2 class="section-title reveal">Entre em Contato.</h2>
+      <div class="contact">
+        <!-- <form class="form reveal" id="contactForm" novalidate>
+          <label>Nome
+            <input type="text" name="nome" id="nome" placeholder="Seu nome" required />
+          </label>
+          <label>E-mail
+            <input type="email" name="email" id="email" placeholder="seu@email.com" required />
+          </label>
+          <label>Mensagem
+            <textarea name="mensagem" id="mensagem" rows="5" placeholder="Como posso ajudar?" required></textarea>
+          </label>
+          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+        </form> -->
+
+        <div class="contact-info reveal">
+          <p>Me encontre por aqui:</p>
+          <a href="mailto:a.santo28092006@gmail.com" class="contact-link">a.santo28092006@gmail.com</a>
+          <a href="tel:79996766168" class="contact-link">79 99676 - 6168</a>
+          <a href="https://www.linkedin.com/in/anderson-ferreira-9839b72b6" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
+          <a href="https://github.com/andersonsanto09" target="_blank" rel="noopener" class="contact-link">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Anderson Santo © 2026 Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
