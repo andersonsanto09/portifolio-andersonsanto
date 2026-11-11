@@ -13,6 +13,54 @@ navList.querySelectorAll("a").forEach((a) =>
   })
 );
 
+// ---------- Rolagem suave ao clicar nos links do menu ----------
+const NAV_OFFSET = 90; // espaço para o menu fixo não cobrir o título
+
+function smoothScrollTo(targetY, duration = 1100) {
+  const html = document.documentElement;
+  const startY = window.scrollY;
+  const distance = targetY - startY;
+  const start = performance.now();
+  const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2); // acelera e desacelera suave
+
+  html.style.scrollBehavior = "auto"; // evita conflito com o smooth do CSS
+  const step = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    window.scrollTo(0, startY + distance * ease(t));
+    if (t < 1) requestAnimationFrame(step);
+    else html.style.scrollBehavior = "";
+  };
+  requestAnimationFrame(step);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener("click", (e) => {
+    const href = a.getAttribute("href");
+    const target = href.length > 1 && document.getElementById(href.slice(1));
+    if (!target) return;
+    e.preventDefault();
+    const y = target.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+    smoothScrollTo(Math.max(0, y));
+    history.pushState(null, "", href);
+  });
+});
+
+// ---------- Esconde o nav ao descer, mostra ao subir ----------
+const navWrap = document.querySelector(".nav-wrap");
+let lastY = window.scrollY;
+window.addEventListener(
+  "scroll",
+  () => {
+    const y = window.scrollY;
+    if (Math.abs(y - lastY) < 8) return; // ignora movimentos mínimos
+    const goingDown = y > lastY && y > 80;
+    const menuOpen = navList.classList.contains("open");
+    navWrap.classList.toggle("nav-hidden", goingDown && !menuOpen);
+    lastY = y;
+  },
+  { passive: true }
+);
+
 // ---------- Fallback de imagens ----------
 function setupFallback(imgId, fallbackId) {
   const img = document.getElementById(imgId);
@@ -25,6 +73,32 @@ setupFallback("avatarImg", "avatarFallback");
 setupFallback("photoImg", "photoFallback");
 
 // ---------- Animação ao rolar + barras de skills ----------
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Cria o rótulo de % de cada skill a partir do data-level
+document.querySelectorAll(".skill").forEach((skill) => {
+  const name = skill.querySelector(".skill-name");
+  const head = document.createElement("div");
+  head.className = "skill-head";
+  name.replaceWith(head);
+  const pct = document.createElement("span");
+  pct.className = "skill-pct";
+  pct.textContent = "0%";
+  head.append(name, pct);
+});
+
+function countUp(el, target, duration = 1200) {
+  if (reduceMotion) { el.textContent = target + "%"; return; }
+  const start = performance.now();
+  const step = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(target * eased) + "%";
+    if (t < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -32,7 +106,9 @@ const observer = new IntersectionObserver(
       const el = entry.target;
       el.classList.add("visible");
       if (el.classList.contains("skill")) {
-        el.querySelector(".bar i").style.width = el.dataset.level + "%";
+        const level = Number(el.dataset.level);
+        el.querySelector(".bar i").style.width = level + "%";
+        countUp(el.querySelector(".skill-pct"), level);
       }
       observer.unobserve(el);
     });

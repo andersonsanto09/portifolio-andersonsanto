@@ -11,7 +11,9 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+html { scroll-behavior: smooth; 
+  scroll-padding-top: 90px; 
+}
 
 body {
   font-family: "Poppins", system-ui, sans-serif;
@@ -35,6 +37,18 @@ ul { list-style: none; }
   justify-content: center;
   z-index: 100;
   padding: 0 16px;
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s ease;
+  will-change: transform, opacity;
+}
+.nav-wrap.nav-hidden {
+  transform: translateY(calc(-100% - 30px)) scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.45s cubic-bezier(0.55, 0, 0.75, 0.3),
+    opacity 0.35s ease 0.08s;
 }
 .nav {
   background: #fff;
@@ -126,7 +140,7 @@ ul { list-style: none; }
   position: absolute;
   inset: 40px -40px -40px 40px;
   background: var(--purple);
-  border-radius: 0 0 60px 0;
+  border-radius: 0 60px 60px 0;
   border-bottom-right-radius: 60px;
   z-index: -1;
 }
@@ -280,15 +294,26 @@ ul { list-style: none; }
   flex: none;
   width: 72px; height: 72px;
   border-radius: 50%;
-  background: var(--purple);
   color: #fff;
   display: grid; place-items: center;
   font-weight: 700;
   font-size: 1.1rem;
+  overflow: hidden;
+  border: 4px solid var(--purple);
+}
+.skill-icon img {
+  width: 60%; height: 60%;
+  object-fit: contain;
 }
 .skill-info { flex: 1; }
 .skill-name { font-size: 1.3rem; font-weight: 600; }
 .skill-name em { font-size: 0.8rem; font-weight: 400; color: var(--muted); }
+.skill-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.skill-pct {
+  font-size: 0.95rem; font-weight: 600;
+  color: var(--purple);
+  font-variant-numeric: tabular-nums;
+}
 .bar { height: 10px; background: var(--gray); border-radius: 10px; margin-top: 6px; overflow: hidden; }
 .bar i {
   display: block; height: 100%; width: 0;
@@ -359,12 +384,16 @@ ul { list-style: none; }
 }
 
 /* ---------- ANIMAÇÃO ---------- */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
 .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .bar i { transition: none; }
+  .nav-wrap, .nav-wrap.nav-hidden { transform: none; transition: opacity 0.2s ease; }
 }
 
 /* ---------- RESPONSIVO ---------- */
@@ -376,20 +405,40 @@ ul { list-style: none; }
 }
 
 @media (max-width: 720px) {
-  .nav { padding: 10px 18px; width: 100%; max-width: 420px; }
-  .nav-toggle { display: block; margin-left: auto; }
+  .nav-wrap { justify-content: flex-end; }
+  .nav { position: relative; background: none; box-shadow: none; padding: 0; border-radius: 0; }
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 0.5px solid var(--text);
+    padding: 0;
+  }
+  .nav-toggle span { width: 18px; margin: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
   .nav-list {
     display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 200px;
     flex-direction: column;
     gap: 14px;
-    padding: 14px 0 6px;
+    padding: 20px 28px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
     text-align: center;
   }
   .nav-list.open { display: flex; }
   .nav-list a { font-size: 0.95rem; }
-  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .hero { padding-top: 110px; }
   .section { padding: 60px 20px; }
 }
