@@ -211,12 +211,29 @@ ul { list-style: none; }
 }
 
 /* ---------- CARDS ---------- */
+.marquee {
+  overflow: hidden;
+  padding: 16px 0 28px; /* espaço para a sombra e o hover */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+.marquee {
+  cursor: grab;
+  touch-action: pan-y; /* no celular, arrastar na vertical continua rolando a página */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.marquee.is-dragging { cursor: grabbing; }
+.marquee img { -webkit-user-drag: none; pointer-events: none; }
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 32px;
+  display: flex;
+  width: max-content;
+  will-change: transform;
 }
 .card {
+  flex: none;
+  width: min(300px, 78vw);
+  margin-right: 32px;
   background: var(--purple);
   color: #fff;
   border-radius: var(--radius);
@@ -252,6 +269,10 @@ ul { list-style: none; }
   padding: 18px 20px 20px;
   display: flex; flex-direction: column; flex: 1;
 }
+/* Cards "Em breve" (sem projeto) */
+.card-soon { opacity: 0.55; }
+.card-soon .card-img { display: grid; place-items: center; }
+.soon-mark { font-size: 3rem; font-weight: 300; color: var(--purple); line-height: 1; }
 .card-body h3 { font-size: 1rem; }
 .card-body p { font-size: 0.82rem; opacity: 0.9; margin: 4px 0 14px; flex: 1; }
 
@@ -351,7 +372,7 @@ ul { list-style: none; }
   background: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   transition: border-color 0.2s;
-  resize: vertical;
+  resize: none;
 }
 .form input:focus, .form textarea:focus { outline: 0; border-color: var(--purple); }
 .form .btn { justify-self: start; }
@@ -381,6 +402,7 @@ ul { list-style: none; }
   padding: 36px 16px;
   font-weight: 600;
   margin-top: 60px;
+  font-size: 0.85rem;
 }
 
 /* ---------- ANIMAÇÃO ---------- */

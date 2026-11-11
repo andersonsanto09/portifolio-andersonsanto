@@ -45,6 +45,109 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 });
 
+// ---------- Carrossel dos projetos (um card por projeto) ----------
+(function setupMarquee() {
+  const marquee = document.querySelector(".marquee");
+  const track = marquee && marquee.querySelector(".cards");
+  if (!track) return;
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const SPEED = reduced ? 0 : 30; // px por segundo (quanto menor, mais lento)
+  const FRICTION = 0.94;          // inércia ao soltar (mais perto de 1 = desliza mais)
+
+  // Uma cópia (só visual) da fila logo atrás dela, para o fim emendar no começo sem espaço vazio.
+  // Como a fila é mais larga que a tela, o mesmo card nunca aparece duas vezes ao mesmo tempo.
+  [...track.children].forEach((card) => {
+    const c = card.cloneNode(true);
+    c.setAttribute("aria-hidden", "true");
+    c.querySelectorAll("a, button").forEach((el) => el.setAttribute("tabindex", "-1"));
+    track.appendChild(c);
+  });
+
+  // Percurso de uma volta: de 0 até -(largura de uma fila)
+  let start = 0, end = 0;
+  const measure = () => {
+    end = -track.offsetWidth / 2;
+  };
+  measure();
+  window.addEventListener("resize", measure);
+
+  let x = 0; // posição atual
+  let velocity = 0;            // velocidade extra vinda do arraste (px/quadro)
+  let hovering = false, dragging = false;
+
+  // Ao sair de um lado, reaparece do outro
+  const wrap = () => {
+    if (x < end) x += start - end;
+    else if (x > start) x -= start - end;
+  };
+
+  let last = performance.now();
+  const tick = (now) => {
+    const dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+    if (!dragging) {
+      if (Math.abs(velocity) > 0.1) {
+        x += velocity;
+        velocity *= FRICTION;
+      } else {
+        velocity = 0;
+        if (!hovering) x -= SPEED * dt;
+      }
+      wrap();
+    }
+    track.style.transform = `translateX(${x}px)`;
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+  // Pausa quando o mouse está em cima (no toque não existe "hover")
+  marquee.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") hovering = true; });
+  marquee.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") hovering = false; });
+  marquee.addEventListener("focusin", () => (hovering = true));
+  marquee.addEventListener("focusout", () => (hovering = false));
+
+  // Arrastar com mouse ou dedo
+  let pointerId = null, downX = 0, prevX = 0, moved = false;
+  marquee.addEventListener("pointerdown", (e) => {
+    if (e.button !== 0) return;
+    pointerId = e.pointerId;
+    downX = prevX = e.clientX;
+    moved = false;
+    velocity = 0;
+  });
+  marquee.addEventListener("pointermove", (e) => {
+    if (e.pointerId !== pointerId) return;
+    if (!moved && Math.abs(e.clientX - downX) > 6) {
+      moved = dragging = true; // só vira arraste depois de mexer um pouco (senão é clique)
+      marquee.classList.add("is-dragging");
+      marquee.setPointerCapture(pointerId);
+    }
+    if (!dragging) return;
+    const dx = e.clientX - prevX;
+    prevX = e.clientX;
+    x += dx;
+    velocity = dx;
+    wrap();
+  });
+  const release = (e) => {
+    if (e.pointerId !== pointerId) return;
+    pointerId = null;
+    dragging = false;
+    marquee.classList.remove("is-dragging");
+  };
+  marquee.addEventListener("pointerup", release);
+  marquee.addEventListener("pointercancel", release);
+
+  // Impede o navegador de "arrastar o link" no lugar do carrossel
+  marquee.addEventListener("dragstart", (e) => e.preventDefault());
+
+  // Depois de arrastar, não abre o link do card por engano
+  marquee.addEventListener("click", (e) => {
+    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+})();
+
 // ---------- Esconde o nav ao descer, mostra ao subir ----------
 const navWrap = document.querySelector(".nav-wrap");
 let lastY = window.scrollY;
