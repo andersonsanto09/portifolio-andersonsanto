@@ -265,6 +265,16 @@ ul { list-style: none; }
   padding: 3px 10px;
   border-radius: 20px;
 }
+.card-award {
+  position: absolute;
+  bottom: 12px; left: 14px;
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--text);
+  background: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
 .card-body {
   padding: 18px 20px 20px;
   display: flex; flex-direction: column; flex: 1;

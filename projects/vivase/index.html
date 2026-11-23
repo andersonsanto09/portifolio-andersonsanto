@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VivaSE Cultura | Anderson Santo</title>
+  <link rel="icon" type="image" href="../../img/favicon-512.png" />
+  <meta name="description" content="VivaSE Cultura: plataforma para viver o FASC e a cultura de São Cristóvão (SE). Projeto premiado com o 2º lugar no Ideathon FASC 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="projeto.css" />
+</head>
+<body>
+
+  <!-- Botão flutuante para voltar ao portfólio -->
+  <a class="back-float" href="../../index.html#portfolio" aria-label="Voltar ao portfólio">
+    <span class="back-arrow" aria-hidden="true">←</span>
+    <span class="back-text">Portfólio</span>
+  </a>
+
+  <main>
+    <!-- HERO -->
+    <section class="p-hero">
+      <div class="p-hero-text reveal">
+        <p class="eyebrow">Ideathon FASC 2026 · 19 a 21 de novembro</p>
+        <h1>VivaSE <span class="accent">Cultura</span></h1>
+        <p class="lead">
+          Plataforma para viver o FASC (Festival de Artes de São Cristóvão) e a cultura da cidade: mapa,
+          programação, roteiros e uma máquina do tempo com a história do festival.
+        </p>
+        <div class="p-hero-actions">
+          <a class="btn btn-primary" href="https://bernas0610.github.io/VivaSE_Cultura-2.0/" target="_blank" rel="noopener">Abrir o projeto</a>
+          <a class="btn btn-outline" href="#previa">Assistir ao pitch</a>
+        </div>
+        <a class="award-pill" href="#premiacao"><span aria-hidden="true">🥈</span> 2º lugar no Ideathon FASC 2026</a>
+      </div>
+      <div class="p-hero-img reveal">
+        <img src="assets/celulares.jpg" alt="Três celulares mostrando a Home do VivaSE, o mapa do FASC 2026 e a experiência Senhor dos Passos" />
+      </div>
+    </section>
+
+    <!-- NÚMEROS -->
+    <section class="stats reveal" aria-label="O projeto em números">
+      <div><strong>20</strong><span>espaços do festival no mapa</span></div>
+      <div><strong>144</strong><span>registros de programação</span></div>
+      <div><strong>18</strong><span>edições históricas pesquisadas</span></div>
+      <div><strong>191</strong><span>artistas e grupos no acervo</span></div>
+    </section>
+
+    <!-- 01 O QUE FOI O PROJETO -->
+    <section class="section p-block" id="projeto">
+      <div class="p-head reveal">
+        <span class="p-num">01</span>
+        <h2>O que foi o projeto.</h2>
+      </div>
+      <div class="p-body reveal">
+        <p>
+          O VivaSE é uma plataforma cultural de São Cristóvão (SE), criada em três dias pela equipe
+          <strong>Oxente Labs</strong>. A primeira experiência é o <strong>FASC 2026</strong>, a 41ª edição do festival,
+          que ocupa praças, museus e ruas da cidade inteira de 20 a 22 de novembro. A ideia se resume em três
+          ações: encontrar o festival, conhecer a cidade e guardar o encontro.
+        </p>
+        <ul class="features">
+          <li>
+            <h3>Mapa do festival</h3>
+            <p>Os 20 espaços com foto real, endereço e o que acontece em cada um. Quando a posição é aproximada, o app avisa. O trajeto abre no aplicativo de mapas do celular.</p>
+          </li>
+          <li>
+            <h3>Programação</h3>
+            <p>144 registros reunidos da agenda oficial, com busca e uma “minha programação” salva no próprio aparelho.</p>
+          </li>
+          <li>
+            <h3>Máquina do tempo</h3>
+            <p>18 edições e 191 artistas e grupos, sempre com fonte. No Palco João Bebe Água, por exemplo, dá para ver que o Olodum tocou ali em 2025.</p>
+          </li>
+          <li>
+            <h3>Roteiros culturais</h3>
+            <p>Caminhos que ligam lugares e histórias em torno da Praça São Francisco, Patrimônio Mundial da UNESCO.</p>
+          </li>
+          <li>
+            <h3>Memórias</h3>
+            <p>Cada visitante guarda a própria lembrança do festival, sem publicar nem enviar nada para um servidor.</p>
+          </li>
+          <li>
+            <h3>Além do FASC</h3>
+            <p>A Festa de Nosso Senhor dos Passos é a segunda experiência da plataforma.</p>
+          </li>
+        </ul>
+        <ul class="chips stack" aria-label="Tecnologias usadas">
+          <li>React</li><li>TypeScript</li><li>Vite</li><li>MapLibre</li><li>MapTiler</li><li>Figma</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02 MOTIVO -->
+    <section class="section p-block" id="motivo">
+      <div class="p-head reveal">
+        <span class="p-num">02</span>
+        <h2>Por que fizemos.</h2>
+      </div>
+      <div class="p-body reveal">
+        <blockquote class="quote">“O que tem hoje, e onde fica?”</blockquote>
+        <p>
+          Essa é a pergunta de quem chega a São Cristóvão pela primeira vez durante o FASC. A informação existe,
+          mas está espalhada entre PDFs da programação, notícias e redes sociais. E juntar tudo no meio da festa,
+          andando pelo Centro Histórico, não é fácil.
+        </p>
+        <p>
+          O desafio do Ideathon FASC 2026 foi ajudar esses turistas a se orientar durante o festival. Definimos três
+          prioridades, nesta ordem:
+        </p>
+        <ol class="priorities">
+          <li><strong>Orientação</strong> durante o festival: achar o palco, o horário e o caminho.</li>
+          <li><strong>Descoberta</strong> da cultura local: a cidade é patrimônio e tem muita história para contar.</li>
+          <li><strong>Memória</strong> do FASC: um festival que existe desde 1972 merece ter sua trajetória preservada.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 03 PESQUISAS -->
+    <section class="section p-block" id="pesquisas">
+      <div class="p-head reveal">
+        <span class="p-num">03</span>
+        <h2>Pesquisas.</h2>
+      </div>
+      <div class="p-body reveal">
+        <p>
+          Um cuidado guiou o projeto do começo ao fim: <strong>cada data, foto e informação tem fonte e crédito</strong>.
+          Quando não confirmamos algo, preferimos dizer que não sabemos a inventar.
+        </p>
+
+        <div class="research">
+          <article class="r-card">
+            <h3>Matriz CSD</h3>
+            <p>Seguindo o Design Sprint, separamos certezas, suposições e dúvidas sobre o público. Escolhemos os turistas que não conhecem a cidade e tratamos a dificuldade de orientação como hipótese a validar com visitantes.</p>
+          </article>
+          <article class="r-card">
+            <h3>Programação oficial</h3>
+            <p>As 24 páginas da programação completa do FASC 2026 foram lidas e conferidas uma a uma. O resultado são 20 espaços e 144 registros de agenda, cada um com o nível de precisão da sua localização.</p>
+          </article>
+          <article class="r-card">
+            <h3>Pesquisa histórica</h3>
+            <p>212 entradas sobre artistas e edições foram cruzadas e deduplicadas, chegando a 230 registros. Auditamos 37 links de fontes e separamos o que foi apresentação confirmada do que foi só anúncio ou convite.</p>
+          </article>
+        </div>
+
+        <h3 class="sources-title">Principais fontes</h3>
+        <ul class="sources">
+          <li>Prefeitura de São Cristóvão: programação oficial e notícias do FASC 2024, 2025 e 2026</li>
+          <li>UNESCO e IPHAN: Praça São Francisco como Patrimônio Mundial</li>
+          <li>UFS: dissertação de Mislene Vieira dos Santos sobre o FASC de 1972 a 1995</li>
+          <li>UFS: inventário digital do fundo fotográfico do FASC (2025)</li>
+          <li>Coberturas jornalísticas das edições recentes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 LINK -->
+    <section class="section p-block" id="link">
+      <div class="p-head reveal">
+        <span class="p-num">04</span>
+        <h2>Link do projeto.</h2>
+      </div>
+      <div class="p-body reveal">
+        <div class="links">
+          <a class="link-card" href="https://bernas0610.github.io/VivaSE_Cultura-2.0/" target="_blank" rel="noopener">
+            <span class="link-label">Protótipo no ar</span>
+            <span class="link-url">bernas0610.github.io/VivaSE_Cultura-2.0</span>
+            <span class="link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="link-card" href="https://github.com/bernas0610/VivaSE_Cultura-2.0" target="_blank" rel="noopener">
+            <span class="link-label">Código no GitHub</span>
+            <span class="link-url">github.com/bernas0610/VivaSE_Cultura-2.0</span>
+            <span class="link-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 PRÉVIA -->
+    <section class="section p-block" id="previa">
+      <div class="p-head reveal">
+        <span class="p-num">05</span>
+        <h2>Prévia.</h2>
+      </div>
+      <div class="p-body reveal">
+        <div class="video">
+          <video controls preload="none" poster="assets/pitch-poster.jpg" playsinline>
+            <source src="assets/pitch.mp4" type="video/mp4" />
+            Seu navegador não reproduz vídeo. <a href="assets/pitch.mp4">Baixe o vídeo do pitch</a>.
+          </video>
+        </div>
+        <p class="caption">Vídeo do pitch apresentado no Ideathon FASC 2026 (2 min 22 s).</p>
+
+        <ul class="gallery">
+          <li><button type="button" data-full="assets/home.jpg"><img src="assets/home.jpg" alt="Home da plataforma VivaSE" loading="lazy" /></button><span>Home da plataforma</span></li>
+          <li><button type="button" data-full="assets/home-fasc.jpg"><img src="assets/home-fasc.jpg" alt="Home do FASC 2026 no VivaSE" loading="lazy" /></button><span>Home do FASC 2026</span></li>
+          <li><button type="button" data-full="assets/mapa.jpg"><img src="assets/mapa.jpg" alt="Mapa com o Palco João Bebe Água selecionado" loading="lazy" /></button><span>Mapa do festival</span></li>
+          <li><button type="button" data-full="assets/programacao.jpg"><img src="assets/programacao.jpg" alt="Programação do festival com busca" loading="lazy" /></button><span>Programação</span></li>
+          <li><button type="button" data-full="assets/maquina-do-tempo.jpg"><img src="assets/maquina-do-tempo.jpg" alt="Máquina do tempo mostrando o Olodum em 2025" loading="lazy" /></button><span>Máquina do tempo</span></li>
+          <li><button type="button" data-full="assets/artistas.jpg"><img src="assets/artistas.jpg" alt="Acervo de artistas do FASC" loading="lazy" /></button><span>Acervo de artistas</span></li>
+          <li><button type="button" data-full="assets/roteiros.jpg"><img src="assets/roteiros.jpg" alt="Roteiros culturais pelo Centro Histórico" loading="lazy" /></button><span>Roteiros culturais</span></li>
+          <li><button type="button" data-full="assets/senhor-dos-passos.jpg"><img src="assets/senhor-dos-passos.jpg" alt="Experiência da Festa de Nosso Senhor dos Passos" loading="lazy" /></button><span>Senhor dos Passos</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 06 PREMIAÇÃO -->
+    <section class="section p-block" id="premiacao">
+      <div class="p-head reveal">
+        <span class="p-num">06</span>
+        <h2>Premiação.</h2>
+      </div>
+      <div class="p-body reveal">
+        <div class="award">
+          <div class="medal" aria-hidden="true">2º</div>
+          <div>
+            <h3>Segundo lugar no Ideathon FASC 2026</h3>
+            <p class="award-meta">19 a 21 de novembro de 2026 · Equipe Oxente Labs</p>
+            <p>
+              Em três dias, saímos do mapeamento do problema para um protótipo funcionando, publicado e
+              apresentado em um pitch de três minutos. A banca reconheceu o projeto com o 2º lugar.
+            </p>
+            <p>
+              Próximos passos: testar com visitantes e parceiros, manter a programação atualizada e ampliar o
+              acervo com curadoria.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="back">
+      <a class="btn btn-primary" href="../../index.html#portfolio">← Voltar ao portfólio</a>
+    </div>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Imagem ampliada">
+    <button type="button" class="lightbox-close" aria-label="Fechar">×</button>
+    <img alt="" />
+  </dialog>
+
+  <footer class="footer">
+    <p>Anderson Santo © 2026 Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="projeto.js"></script>
+</body>
+</html>
